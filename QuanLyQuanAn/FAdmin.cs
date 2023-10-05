@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanAn
 {
-    //cho phuc ngu vl 
+  
     public partial class FAdmin : Form
     {
         public FAdmin()

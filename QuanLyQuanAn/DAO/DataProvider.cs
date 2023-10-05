@@ -18,7 +18,7 @@ namespace QuanLyQuanAn.DAO
         }
         private DataProvider() { }
 
-        private string connectionSTR = @"Data Source=LAPTOP-QR7RLQ3S\SQLEXPRESS;Initial Catalog=QUANLYQUANAN;Integrated Security=True";
+        private string connectionSTR = @"Data Source=\SQLEXPRESS;Initial Catalog=QUANLYQUANAN;Integrated Security=True";
 
 
 

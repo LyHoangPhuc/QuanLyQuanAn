@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace QuanLyQuanAn.DTO
 {
     public class Account
     {
-
         private string userName;
         private string displayName;
         private string password;

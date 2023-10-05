@@ -42,7 +42,7 @@ namespace QuanLyQuanAn
             this.txbNewPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txbEnterPass = new System.Windows.Forms.TextBox();
+            this.txbReEnterPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -166,21 +166,21 @@ namespace QuanLyQuanAn
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.txbEnterPass);
+            this.panel5.Controls.Add(this.txbReEnterPass);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(12, 340);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(596, 76);
             this.panel5.TabIndex = 5;
             // 
-            // txbEnterPass
+            // txbReEnterPass
             // 
-            this.txbEnterPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEnterPass.Location = new System.Drawing.Point(237, 20);
-            this.txbEnterPass.Name = "txbEnterPass";
-            this.txbEnterPass.Size = new System.Drawing.Size(349, 34);
-            this.txbEnterPass.TabIndex = 1;
-            this.txbEnterPass.UseSystemPasswordChar = true;
+            this.txbReEnterPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbReEnterPass.Location = new System.Drawing.Point(237, 20);
+            this.txbReEnterPass.Name = "txbReEnterPass";
+            this.txbReEnterPass.Size = new System.Drawing.Size(349, 34);
+            this.txbReEnterPass.TabIndex = 1;
+            this.txbReEnterPass.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -255,7 +255,7 @@ namespace QuanLyQuanAn
         private System.Windows.Forms.TextBox txbNewPass;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txbEnterPass;
+        private System.Windows.Forms.TextBox txbReEnterPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnExit;

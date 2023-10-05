@@ -26,6 +26,12 @@ namespace QuanLyQuanAn.DAO
             return result.Rows.Count > 0;
         }
 
+        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName Nvarchar(100), @displayName , @password , @newPassword ", new object[] { userName, displayName, pass, newPass });
+            return result > 0;
+        }
+
         public Account GetAccountByUserName(string userName)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("Select *from account where userName = '" + userName + "'");

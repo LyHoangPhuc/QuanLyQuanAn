@@ -18,11 +18,26 @@ namespace QuanLyQuanAn
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        private Account loginAccount;
+        public Account LoginAccount
+        {
+            get { return loginAccount; }
+            set { loginAccount = value; changeAccount(loginAccount.Type); }
+        }
+        public fTableManager(Account acc)
         {
             InitializeComponent();
+            this.loginAccount = acc;
             LoadTable();
         }
+
+        void changeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";
+        }
+
+
         #region Method
         void LoadTable()
         {
@@ -82,7 +97,7 @@ namespace QuanLyQuanAn
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FAccountProfile f = new FAccountProfile();
+            FAccountProfile f = new FAccountProfile(loginAccount);
             f.ShowDialog();
 
         }
