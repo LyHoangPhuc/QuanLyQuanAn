@@ -41,7 +41,7 @@ namespace QuanLyQuanAn
             string userName = txbUserName.Text;
             if (!newpass.Equals(reenterPass))
             {
-                MessageBox.Show("Vui lonhf nhập lại mật khẩu đúng với mật khẩu mới!");
+                MessageBox.Show("Vui lòng nhập lại mật khẩu đúng với mật khẩu mới!");
             }
             else
             {
@@ -59,7 +59,5 @@ namespace QuanLyQuanAn
         {
             this.Close();
         }
-
-
     }
 }

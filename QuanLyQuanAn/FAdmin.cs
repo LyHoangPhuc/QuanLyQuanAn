@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace QuanLyQuanAn
 {
-    //cho phuc ngu vl 
     public partial class FAdmin : Form
     {
         public FAdmin()
@@ -31,6 +30,5 @@ namespace QuanLyQuanAn
             string query = "EXEC dbo.USP_GetAccountByUserName @userName";
             dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery("select *from dbo.Account where UserName = N'' ");
         }
-
     }
 }
