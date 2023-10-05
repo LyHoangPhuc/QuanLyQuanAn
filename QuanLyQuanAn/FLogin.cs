@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanAn.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +19,25 @@ namespace QuanLyQuanAn
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fTableManager f = new fTableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string userName = txbUserName.Text;
+            string passWord = txbPassWord.Text;
+
+            if (Login(userName, passWord))
+            {
+                fTableManager f = new fTableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+            }
+        }
+
+        bool Login(string userName, string passWord)
+        {
+            return AccountDAO.Instance.Login(userName, passWord);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -30,7 +46,7 @@ namespace QuanLyQuanAn
 
         private void FLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Bạn có thực sự muốn thoát chương trình ?","Thông báo",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Bạn có thực sự muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }

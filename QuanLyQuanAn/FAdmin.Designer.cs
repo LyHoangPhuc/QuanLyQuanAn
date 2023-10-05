@@ -115,7 +115,7 @@ namespace QuanLyQuanAn
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -155,7 +155,7 @@ namespace QuanLyQuanAn
             this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -170,7 +170,6 @@ namespace QuanLyQuanAn
             this.tcAdmin.SelectedIndex = 0;
             this.tcAdmin.Size = new System.Drawing.Size(902, 527);
             this.tcAdmin.TabIndex = 0;
-            this.tcAdmin.SelectedIndexChanged += new System.EventHandler(this.tcAdmin_SelectedIndexChanged);
             // 
             // tpBill
             // 
@@ -290,7 +289,6 @@ namespace QuanLyQuanAn
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(377, 65);
             this.panel6.TabIndex = 3;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // txbSearchFoodName
             // 
@@ -319,7 +317,6 @@ namespace QuanLyQuanAn
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(377, 409);
             this.panel5.TabIndex = 2;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel10
             // 
@@ -437,7 +434,6 @@ namespace QuanLyQuanAn
             this.label1.Size = new System.Drawing.Size(34, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel4
             // 
@@ -449,7 +445,6 @@ namespace QuanLyQuanAn
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(499, 65);
             this.panel4.TabIndex = 1;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // btnShowFood
             // 
@@ -513,7 +508,6 @@ namespace QuanLyQuanAn
             this.dtgvFood.RowTemplate.Height = 24;
             this.dtgvFood.Size = new System.Drawing.Size(493, 403);
             this.dtgvFood.TabIndex = 0;
-            this.dtgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvFood_CellContentClick);
             // 
             // tpFoodCategory
             // 
@@ -536,7 +530,6 @@ namespace QuanLyQuanAn
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(377, 409);
             this.panel13.TabIndex = 4;
-            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
             // panel16
             // 
@@ -613,7 +606,6 @@ namespace QuanLyQuanAn
             this.dtgvCategory.RowTemplate.Height = 24;
             this.dtgvCategory.Size = new System.Drawing.Size(493, 403);
             this.dtgvCategory.TabIndex = 0;
-            this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCategory_CellContentClick);
             // 
             // panel11
             // 
@@ -625,7 +617,6 @@ namespace QuanLyQuanAn
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(499, 65);
             this.panel11.TabIndex = 2;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // btnShowCategory
             // 
@@ -750,7 +741,6 @@ namespace QuanLyQuanAn
             this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên Bàn:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // panel18
             // 
@@ -1035,21 +1025,21 @@ namespace QuanLyQuanAn
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.dataGridView1);
+            this.panel29.Controls.Add(this.dtgvAccount);
             this.panel29.Location = new System.Drawing.Point(6, 80);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(499, 409);
             this.panel29.TabIndex = 4;
             // 
-            // dataGridView1
+            // dtgvAccount
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(493, 403);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvAccount.Location = new System.Drawing.Point(3, 3);
+            this.dtgvAccount.Name = "dtgvAccount";
+            this.dtgvAccount.RowHeadersWidth = 51;
+            this.dtgvAccount.RowTemplate.Height = 24;
+            this.dtgvAccount.Size = new System.Drawing.Size(493, 403);
+            this.dtgvAccount.TabIndex = 0;
             // 
             // FAdmin
             // 
@@ -1111,7 +1101,7 @@ namespace QuanLyQuanAn
             this.panel27.PerformLayout();
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1204,6 +1194,6 @@ namespace QuanLyQuanAn
         private System.Windows.Forms.Button btnDeleteAccount;
         private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvAccount;
     }
 }

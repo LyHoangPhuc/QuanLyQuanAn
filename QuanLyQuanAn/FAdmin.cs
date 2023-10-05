@@ -1,7 +1,9 @@
-﻿using System;
+﻿using QuanLyQuanAn.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,56 +17,19 @@ namespace QuanLyQuanAn
         public FAdmin()
         {
             InitializeComponent();
+            LoadAccountList();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        void LoadFoodList()
         {
-
+            string query = "select *from food ";
+            dtgvFood.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
-
-        private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        void LoadAccountList()
         {
-
+            string query = "EXEC dbo.USP_GetAccountByUserName @userName";
+            dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery("select *from dbo.Account where UserName = N'' ");
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dtgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel13_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dtgvCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

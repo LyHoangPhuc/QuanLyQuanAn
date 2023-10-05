@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyQuanAn.DTO
 {
-    class Table
+    public class Table
     {
         public Table(int iD,string name,string status)
         {
