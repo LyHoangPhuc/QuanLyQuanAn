@@ -21,7 +21,7 @@ namespace QuanLyQuanAn.DTO
         {
             this.ID = (int)row["iD"];
             this.Name = row["name"].ToString();
-            this.CategoryID = (int)row["categoryID"];
+            this.CategoryID = (int)row["idcategory"];
             this.Price = (float)Convert.ToDouble(row["price"].ToString());
         }
 
