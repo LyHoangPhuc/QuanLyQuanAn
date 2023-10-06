@@ -149,12 +149,12 @@ namespace QuanLyQuanAn
             int count = (int)nmFoodCount.Value;
             if(idBill == -1)
             {
-                BillDAO.Instance.insertBill(table.ID);
-                BillInfoDAO.Instance.insertBillInfo(BillDAO.Instance.GetMaxIDBill(),foodID,count);
+                BillDAO.Instance.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(),foodID,count);
             }
             else
             {
-                BillInfoDAO.Instance.insertBillInfo(idBill, foodID, count);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
             }
             ShowBill(table.ID);
         }
