@@ -50,6 +50,32 @@ namespace QuanLyQuanAn.DAO
             return result > 0;
         }
 
+        public bool InsertAccount(string name, string displayName, int type)       //insert account
+        {
+            string query = string.Format("insert dbo.Account (Username, DisplayName, Type)values (N'{0}' , N'{1}' , {2})", name, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool UpdateAccount(string name, string displayName, int type)    //update account
+        {
+            string query = string.Format("update dbo.Account set DisplayName = N'{1}', Type = {2} where UserName = N'{0}'", name, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool DeleteAccount(string name)           //delete account 
+        {
+            string query = string.Format("delete Account where UserName = '{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
         
+        public bool ResetPassword(string name)
+        {
+            string query = string.Format("update Account set password = N'0' where UserName = '{0}'", name);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
     }
 }

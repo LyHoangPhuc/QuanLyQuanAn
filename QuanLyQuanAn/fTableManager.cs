@@ -126,8 +126,9 @@ namespace QuanLyQuanAn
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FAdmin f = new FAdmin();
+            f.loginAccount = LoginAccount;
             f.ShowDialog();
-        }
+        } 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = 0;
