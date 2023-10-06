@@ -29,9 +29,10 @@ namespace QuanLyQuanAn
             dtgvAccount.DataSource = accountList;
             LoadAccount();
             AddAccountBinding();
+            LoadListFood();
         }
 
-         void AddAccountBinding()       //add account vào binding 
+        void AddAccountBinding()       //add account vào binding 
         {
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName", true, DataSourceUpdateMode.Never));        //true, DataSourceUpdateMode.Never để tránh textbox chuyển đổi dữ liệu ngược về dtgv
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
@@ -42,14 +43,15 @@ namespace QuanLyQuanAn
         {
             LoadAccount();
         }
-        void LoadAccount()                                          
+
+        void LoadAccount()
         {
-            accountList.DataSource = AccountDAO.Instance.GetListAccount(); 
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
         void AddAccount(string username, string displayname, int type)
         {
-            if(AccountDAO.Instance.InsertAccount(username, displayname, type))
+            if (AccountDAO.Instance.InsertAccount(username, displayname, type))
             {
                 MessageBox.Show("Thêm tài khoảng thành công");
             }
@@ -87,12 +89,12 @@ namespace QuanLyQuanAn
             string userName = txbUserName.Text;
             string displayName = txbDisplayName.Text;
             int type = (int)nubType.Value;
-            EditAccount(userName, displayName, type); 
+            EditAccount(userName, displayName, type);
         }
 
         void DeleteAccount(string username)
         {
-            if(loginAccount.UserName.Equals(username))
+            if (loginAccount.UserName.Equals(username))
             {
                 MessageBox.Show("Vui lòng không xóa tài khoản đang đăng nhập");
                 return;             //kết thúc 
@@ -129,6 +131,14 @@ namespace QuanLyQuanAn
         {
             string userName = txbUserName.Text;
             ResetPass(userName);
+        }
+        void LoadListFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+        }
+        private void btnShowFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
         }
     }
 }

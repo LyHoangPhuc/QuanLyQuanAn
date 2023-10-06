@@ -56,6 +56,7 @@ namespace QuanLyQuanAn
         }
         void LoadTable()
         {
+            flpTable.Controls.Clear();
             List<Table> tableList =  TableDAO.Instance.LoadTableList();
             foreach (Table item in tableList)
             {
@@ -96,6 +97,7 @@ namespace QuanLyQuanAn
             CultureInfo culture = new CultureInfo("vi-VN");
             Thread.CurrentThread.CurrentCulture = culture;
             txbTotalPrice.Text = totalPrice.ToString("c",culture);
+            LoadTable();
         }
         #endregion
 
@@ -150,15 +152,33 @@ namespace QuanLyQuanAn
             int count = (int)nmFoodCount.Value;
             if(idBill == -1)
             {
-                BillDAO.Instance.insertBill(table.ID);
-                BillInfoDAO.Instance.insertBillInfo(BillDAO.Instance.GetMaxIDBill(),foodID,count);
+                BillDAO.Instance.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(),foodID,count);
             }
             else
             {
-                BillInfoDAO.Instance.insertBillInfo(idBill, foodID, count);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodID, count);
             }
             ShowBill(table.ID);
         }
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            if (idBill != -1)
+            {
+                if (MessageBox.Show("Bạn có chắc thanh toán hóa đơn cho bàn " + table.Name, "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+
+                    LoadTable();
+                }
+            }
+        }
+
         #endregion
 
 
