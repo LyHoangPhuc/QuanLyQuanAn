@@ -27,6 +27,7 @@ namespace QuanLyQuanAn
             dtgvAccount.DataSource = accountList;
             LoadAccount();
             AddAccountBinding();
+            LoadListFood();
         }
 
          void AddAccountBinding()       //add account vào binding 
@@ -43,6 +44,15 @@ namespace QuanLyQuanAn
         private void btnShowAccount_Click(object sender, EventArgs e)       //xem account
         {
             LoadAccount();
+        }
+        void LoadListFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+        }
+
+        private void btnShowFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
         }
     }
 }
