@@ -71,9 +71,7 @@ VALUES
 (N'P',N'LYHOANGPHUC',N'3',1),
 (N'PP',N'DOTHANHPHAT',N'4',1)
 
-update  dbo.Account
-set type = 2
-where UserName = N'PP'
+update  dbo.Account set type = 0 where UserName = N'PP'
 select *from dbo.Account
 
 select UserName, DisplayName, Type from dbo.Account
@@ -110,7 +108,6 @@ CREATE PROC USP_GetTableList
 AS
 	SELECT*FROM dbo.TableFood
 GO
-UPDATE dbo.TableFood SET STATUS = N'Có người' WHERE id = 9
 EXEC dbo.USP_GetTableList
 GO
 
