@@ -424,6 +424,7 @@ namespace QuanLyQuanAn
             this.txbFoodID.Name = "txbFoodID";
             this.txbFoodID.Size = new System.Drawing.Size(247, 27);
             this.txbFoodID.TabIndex = 1;
+            this.txbFoodID.TextChanged += new System.EventHandler(this.txbFoodID_TextChanged);
             // 
             // label1
             // 

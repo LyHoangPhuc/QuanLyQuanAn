@@ -28,9 +28,11 @@ namespace QuanLyQuanAn
             LoadAccount();
             AddAccountBinding();
             LoadListFood();
+            LoadCategoryIntoCombobox(cbFoodCategory);
+            AddFoodBinding();
         }
 
-         void AddAccountBinding()       //add account vào binding 
+        void AddAccountBinding()       //add account vào binding 
         {
             txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName"));
             txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName"));
@@ -38,7 +40,7 @@ namespace QuanLyQuanAn
 
         void LoadAccount()
         {
-            accountList.DataSource = AccountDAO.Instance.GetListAccount(); 
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
         private void btnShowAccount_Click(object sender, EventArgs e)       //xem account
@@ -54,5 +56,44 @@ namespace QuanLyQuanAn
         {
             LoadListFood();
         }
+        void AddFoodBinding()
+        {
+            txbFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
+            txbFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "ID"));
+            nmFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "Price"));
+        }
+
+        void LoadCategoryIntoCombobox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetListCategory();
+            cb.DisplayMember = "Name";
+        }
+        private void txbFoodID_TextChanged(object sender, EventArgs e)
+        {
+            if (dtgvFood.SelectedCells.Count > 0)
+            {
+                int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+
+                Category cateogory = CategoryDAO.Instance.GetCategoryByID(id);
+
+                cbFoodCategory.SelectedItem = cateogory;
+
+                int index = -1;
+                int i = 0;
+                foreach (Category item in cbFoodCategory.Items)
+                {
+                    if (item.ID == cateogory.ID)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+                }
+
+                cbFoodCategory.SelectedIndex = index;
+            }
+        }
+
+       
     }
 }
