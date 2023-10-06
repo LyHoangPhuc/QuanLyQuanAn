@@ -76,6 +76,7 @@ set type = 2
 where UserName = N'PP'
 select *from dbo.Account
 
+select UserName, DisplayName, Type from dbo.Account
 
 CREATE PROC USP_GetAccountByUserName
 @userName NVARCHAR(100)

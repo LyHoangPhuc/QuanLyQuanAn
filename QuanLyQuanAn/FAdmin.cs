@@ -13,8 +13,6 @@ using System.Windows.Forms;
 namespace QuanLyQuanAn
 {
 
-  
-
     public partial class FAdmin : Form
     {
         BindingSource accountList = new BindingSource();        //tạo binding accountList (liên kết dữ liệu từ ngồn dữ liệu đến điều khiển giao diện người dùng) 

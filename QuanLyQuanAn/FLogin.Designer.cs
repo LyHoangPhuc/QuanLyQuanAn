@@ -56,7 +56,10 @@ namespace QuanLyQuanAn
             // 
             // btnExit
             // 
+
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+
+
             this.btnExit.Location = new System.Drawing.Point(620, 190);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(96, 52);
@@ -91,6 +94,7 @@ namespace QuanLyQuanAn
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(443, 34);
             this.txbPassWord.TabIndex = 1;
+            this.txbPassWord.Text = "1";
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // label2
@@ -119,6 +123,10 @@ namespace QuanLyQuanAn
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(443, 34);
             this.txbUserName.TabIndex = 1;
+
+
+            this.txbUserName.Text = "m";
+
             // 
             // label1
             // 

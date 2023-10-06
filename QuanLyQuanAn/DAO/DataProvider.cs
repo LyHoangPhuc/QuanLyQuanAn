@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 namespace QuanLyQuanAn.DAO
 {
     public class DataProvider       
-    {
-                
+    {           
                 private static DataProvider instance;   //tạo Singleton: được sử dụng để đảm bảo rằng một lớp chỉ có duy nhất một thể hiện (instance)
-                public static DataProvider Instance     //đóng gói 
+                public static DataProvider Instance     //đóng gói      
                 {
                     get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
-                    private set {DataProvider.instance = value; }          //private để chỉ nội bộ class này được set dữ liệu vào 
+                    private set { DataProvider.instance = value; }
                 }
-                private DataProvider() { }       
+                private DataProvider() { }                
         
                 private string connectionSTR = "Data Source=.\\SQLEXPRESS;Initial Catalog=QUANLYQUANAN;Integrated Security=True";   //tao chuoi "connectionSTR" de lay duong dan ket noi den csdl
 
