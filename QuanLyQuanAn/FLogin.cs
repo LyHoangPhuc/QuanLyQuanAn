@@ -26,7 +26,7 @@ namespace QuanLyQuanAn
             if (Login(userName, passWord))
             {
                 Account loginAccount = AccountDAO.Instance.GetAccountByUserName(userName);
-                fTableManager f = new fTableManager(loginAccount);
+                fTableManager f = new fTableManager(loginAccount);  //truyền loginAccount vào 
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -43,7 +43,7 @@ namespace QuanLyQuanAn
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit();  
         }
 
         private void FLogin_FormClosing(object sender, FormClosingEventArgs e)

@@ -17,21 +17,34 @@ namespace QuanLyQuanAn
 
     public partial class FAdmin : Form
     {
+        BindingSource accountList = new BindingSource();        //tạo binding accountList (liên kết dữ liệu từ ngồn dữ liệu đến điều khiển giao diện người dùng) 
         public FAdmin()
         {
             InitializeComponent();
-            LoadAccountList();
+            Load();
         }
 
-        void LoadFoodList()
+        void Load()
         {
-            string query = "select *from food ";
-            dtgvFood.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            dtgvAccount.DataSource = accountList;
+            LoadAccount();
+            AddAccountBinding();
         }
-        void LoadAccountList()
+
+         void AddAccountBinding()       //add account vào binding 
         {
-            string query = "EXEC dbo.USP_GetAccountByUserName @userName";
-            dtgvAccount.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            txbUserName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "UserName"));
+            txbDisplayName.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "DisplayName"));
+        }
+
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount(); 
+        }
+
+        private void btnShowAccount_Click(object sender, EventArgs e)       //xem account
+        {
+            LoadAccount();
         }
     }
 }

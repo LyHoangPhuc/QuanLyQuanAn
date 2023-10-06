@@ -5,21 +5,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace QuanLyQuanAn.DTO
+                
+namespace QuanLyQuanAn.DTO                
 {
-    public class Account
+    public class Account                    //tạo model 
     {
         private string userName;
         private string displayName;
         private string password;
         private int type;
-        public string UserName { get => userName; set => userName = value; }
-        public string DisplayName { get => displayName; set => displayName = value; }
-        public string PassWord { get => password; set => password = value; }
-        public int Type { get => type; set => type = value; }
+        public string UserName 
+        { 
+            get { return userName; }
+            set { userName = value; }
+        }
+        public string DisplayName 
+        {
+            get { return displayName; }
+            set { displayName = value; } 
+        }
+        public string PassWord
+        {   get { return password; }
+            set { password = value; }
+        }
+        public int Type 
+        {
+            get { return type; }
+            set { type = value; }
+        }
 
-        public Account(string userName, string displayName, int type, string password)
+        public Account(string userName, string displayName, int type, string password = null)
         {
             this.UserName = userName;
             this.DisplayName = displayName;
@@ -27,7 +42,7 @@ namespace QuanLyQuanAn.DTO
             this.Type = type;
         }
 
-        public Account(DataRow row)
+        public Account(DataRow row)  
         {
             this.UserName = row["userName"].ToString();
             this.DisplayName = row["displayName"].ToString();

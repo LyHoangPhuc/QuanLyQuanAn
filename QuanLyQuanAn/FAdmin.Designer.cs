@@ -989,6 +989,7 @@ namespace QuanLyQuanAn
             this.btnShowAccount.TabIndex = 3;
             this.btnShowAccount.Text = "Xem";
             this.btnShowAccount.UseVisualStyleBackColor = false;
+            this.btnShowAccount.Click += new System.EventHandler(this.btnShowAccount_Click);
             // 
             // btnEditAccount
             // 

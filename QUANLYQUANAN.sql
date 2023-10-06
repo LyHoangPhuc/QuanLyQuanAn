@@ -71,25 +71,31 @@ VALUES
 (N'P',N'LYHOANGPHUC',N'3',1),
 (N'PP',N'DOTHANHPHAT',N'4',1)
 
+update  dbo.Account
+set type = 2
+where UserName = N'PP'
+select *from dbo.Account
+
+
 CREATE PROC USP_GetAccountByUserName
 @userName NVARCHAR(100)
 AS
 BEGIN
-	SELECT*FROM dbo.Account
-	WHERE UserName = @userName
+	SELECT*FROM dbo.Account WHERE UserName = @userName
 END
 GO
 EXEC dbo.USP_GetAccountByUserName @userName = N'T'
 GO
+
 --
 CREATE PROC USP_Login
 @userName NVARCHAR(100), @passWord NVARCHAR(100)
 AS
 BEGIN
-	SELECT*FROM dbo.Account
-	WHERE UserName = @userName AND PassWord = @passWord
+	SELECT*FROM dbo.Account WHERE UserName = @userName AND PassWord = @passWord   
 END
 GO
+exec dbo.USP_Login @userName = N'M', @passWord = N'1'
 --
 --mặc định 10 bàn
 DECLARE @i INT = 0 

@@ -18,24 +18,26 @@ namespace QuanLyQuanAn
 {
     public partial class fTableManager : Form
     {
-        private Account loginAccount;
+        private Account loginAccount;       
+
         public Account LoginAccount
         {
             get { return loginAccount; }
             set { loginAccount = value; changeAccount(loginAccount.Type); }
         }
+
         public fTableManager(Account acc)
         {
             InitializeComponent();
-            this.loginAccount = acc;
+            this.LoginAccount = acc;        //chuyền tài khoản đăng nhập vào 
             LoadTable();
             LoadCategory();
         }
 
-        void changeAccount(int type)
+        void changeAccount(int type)     //thay đổi account 
         {
-            adminToolStripMenuItem.Enabled = type == 1;
-            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";
+            adminToolStripMenuItem.Enabled = type == 1;     //adminToolStripMenuItem sử dụng được khi type bằng 1, khác 1 thì không dùng được 
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";        //hiện thị thêm displayName bên phần thông tin tài khoản 
         }
 
 
@@ -109,10 +111,15 @@ namespace QuanLyQuanAn
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FAccountProfile f = new FAccountProfile(loginAccount);
+            f.UpdateAccountt += F_UpdateAccountt;
             f.ShowDialog();
-
         }
 
+        private void F_UpdateAccountt(object sender, AccountEvent e)        //(đổ dữ liệu từ form con đến form cha) cập nhật lại DisplayName ở phần test thông tin tài khoản 
+        {
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
+        }
+         
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FAdmin f = new FAdmin();
