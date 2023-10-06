@@ -11,15 +11,15 @@ namespace QuanLyQuanAn
 {
     public class BillDAO
     {
-        private static BillDAO instance;
+            private static BillDAO instance;
 
-        public static BillDAO Instance
-        {
-            get { if (instance == null) instance = new BillDAO(); return BillDAO.instance; }
-            private set { BillDAO.instance = value; }
-        }
+            public static BillDAO Instance
+            {
+                get { if (instance == null) instance = new BillDAO(); return BillDAO.instance; }
+                private set { BillDAO.instance = value; }
+            }
 
-        private BillDAO() { }
+            private BillDAO() { }
 
         /// <summary>
         /// Thành công: bill ID
@@ -39,9 +39,10 @@ namespace QuanLyQuanAn
 
             return -1;
         }
-        public void CheckOut(int id)
+
+        public void CheckOut(int id, int discount)
         {
-            string query = "UPDATE dbo.Bill SET status = 1 WHERE id = " + id;
+            string query = "UPDATE dbo.Bill SET status = 1, " + "discount = " + discount + " WHERE id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
         public void InsertBill(int id)
@@ -61,4 +62,5 @@ namespace QuanLyQuanAn
             }
         }
     }
+    
 }

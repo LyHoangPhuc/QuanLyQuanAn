@@ -108,7 +108,6 @@ CREATE PROC USP_GetTableList
 AS
 	SELECT*FROM dbo.TableFood
 GO
-UPDATE dbo.TableFood SET STATUS = N'Có người' WHERE id = 9
 EXEC dbo.USP_GetTableList
 GO
 
