@@ -15,7 +15,8 @@ namespace QuanLyQuanAn
 
     public partial class FAdmin : Form
     {
-        BindingSource accountList = new BindingSource();        //tạo binding accountList (liên kết dữ liệu từ ngồn dữ liệu đến điều khiển giao diện người dùng) 
+        BindingSource accountList = new BindingSource();   //tạo binding accountList (liên kết dữ liệu từ ngồn dữ liệu đến điều khiển giao diện người dùng) 
+        BindingSource foodlist = new BindingSource();
         public FAdmin()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace QuanLyQuanAn
         void Load()
         {
             dtgvAccount.DataSource = accountList;
+            dtgvFood.DataSource = foodlist;
             LoadAccount();
             AddAccountBinding();
             LoadListFood();
@@ -49,7 +51,7 @@ namespace QuanLyQuanAn
         }
         void LoadListFood()
         {
-            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+            foodlist.DataSource = FoodDAO.Instance.GetListFood();
         }
 
         private void btnShowFood_Click(object sender, EventArgs e)
