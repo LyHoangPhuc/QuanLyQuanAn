@@ -459,7 +459,6 @@ namespace QuanLyQuanAn
             this.btnShowFood.TabIndex = 3;
             this.btnShowFood.Text = "Xem";
             this.btnShowFood.UseVisualStyleBackColor = false;
-            this.btnShowFood.Click += new System.EventHandler(this.btnShowFood_Click);
             // 
             // btnEditFood
             // 
@@ -1008,7 +1007,6 @@ namespace QuanLyQuanAn
             this.btnEditAccount.TabIndex = 2;
             this.btnEditAccount.Text = "Sửa";
             this.btnEditAccount.UseVisualStyleBackColor = false;
-            this.btnEditAccount.Click += new System.EventHandler(this.btnEditAccount_Click);
             // 
             // btnDeleteAccount
             // 
@@ -1020,7 +1018,6 @@ namespace QuanLyQuanAn
             this.btnDeleteAccount.TabIndex = 1;
             this.btnDeleteAccount.Text = "Xóa ";
             this.btnDeleteAccount.UseVisualStyleBackColor = false;
-            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
             // 
             // btnAddAccount
             // 
@@ -1032,7 +1029,7 @@ namespace QuanLyQuanAn
             this.btnAddAccount.TabIndex = 0;
             this.btnAddAccount.Text = "Thêm ";
             this.btnAddAccount.UseVisualStyleBackColor = false;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // panel29
             // 
