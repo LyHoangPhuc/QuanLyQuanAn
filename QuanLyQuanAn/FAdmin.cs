@@ -1,4 +1,5 @@
 ﻿using QuanLyQuanAn.DAO;
+using QuanLyQuanAn.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,12 @@ namespace QuanLyQuanAn
     public partial class FAdmin : Form
     {
         BindingSource accountList = new BindingSource();   //tạo binding accountList (liên kết dữ liệu từ ngồn dữ liệu đến điều khiển giao diện người dùng) 
+        public Account loginAccount;
         BindingSource foodlist = new BindingSource();
         public FAdmin()
         {
             InitializeComponent();
+           
             Load();
         }
         List<Food> SearchFoodByName(string name)
@@ -37,6 +40,18 @@ namespace QuanLyQuanAn
             LoadListFood();
             LoadCategoryIntoCombobox(cbFoodCategory);
             AddFoodBinding();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFromDay.Value, dtpkToDay.Value);
+        }
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDay.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDay.Value = dtpkFromDay.Value.AddMonths(1).AddDays(-1);
+        }
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut);
         }
 
         void AddAccountBinding()       //add account vào binding 
@@ -162,7 +177,7 @@ namespace QuanLyQuanAn
 
         private void btnViewBill_Click(object sender, EventArgs e)
         {
-            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
+            LoadListBillByDate(dtpkFromDay.Value , dtpkToDay.Value);
         }
 
         private event EventHandler insertFood;
@@ -189,6 +204,11 @@ namespace QuanLyQuanAn
         private void btnShowFood_Click_1(object sender, EventArgs e)
         {
             LoadListFood();
+        }
+
+        private void btnViewbill_Click_1(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dtpkFromDay.Value, dtpkToDay.Value);
         }
     }
 }

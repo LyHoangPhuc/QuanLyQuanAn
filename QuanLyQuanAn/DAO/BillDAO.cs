@@ -61,6 +61,10 @@ namespace QuanLyQuanAn
                 return 1;
             }
         }
+        public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("exec USP_GetListBillByDate @checkIn , @checkOut ", new object[] { checkIn, checkOut });
+        }
     }
     
 }

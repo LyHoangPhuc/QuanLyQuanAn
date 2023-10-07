@@ -19,7 +19,6 @@ namespace QuanLyQuanAn
     public partial class fTableManager : Form
     {
         private Account loginAccount;       
-
         public Account LoginAccount
         {
             get { return loginAccount; }
