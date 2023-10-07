@@ -22,7 +22,12 @@ namespace QuanLyQuanAn
             InitializeComponent();
             Load();
         }
+        List<Food> SearchFoodByName(string name)
+        {
+            List<Food> listFood = FoodDAO.Instance.SearchFoodByName(name);
 
+            return listFood;
+        }
         void Load()
         {
             dtgvAccount.DataSource = accountList;
@@ -95,6 +100,10 @@ namespace QuanLyQuanAn
                 cbFoodCategory.SelectedIndex = index;
             }
         }
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            foodlist.DataSource = SearchFoodByName(txbSearchFoodName.Text);
+        }
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             string name = txbFoodName.Text;
@@ -149,10 +158,7 @@ namespace QuanLyQuanAn
                 MessageBox.Show("Có lỗi khi xóa thức ăn");
             }
         }
-        private void btnShowFood_Click(object sender, EventArgs e)
-        {
-            LoadListFood();
-        }
+       
 
         private void btnViewBill_Click(object sender, EventArgs e)
         {
@@ -180,5 +186,9 @@ namespace QuanLyQuanAn
             remove { updateFood -= value; }
         }
 
+        private void btnShowFood_Click_1(object sender, EventArgs e)
+        {
+            LoadListFood();
+        }
     }
 }
