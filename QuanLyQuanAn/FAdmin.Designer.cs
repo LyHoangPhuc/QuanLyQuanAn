@@ -205,6 +205,7 @@ namespace QuanLyQuanAn
             this.btnViewbill.TabIndex = 2;
             this.btnViewbill.Text = "Thống kê";
             this.btnViewbill.UseVisualStyleBackColor = false;
+            this.btnViewbill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // dtpkToDay
             // 
