@@ -286,6 +286,7 @@ Begin
 	where  DateCheckIn >= @checkIn AND DateCheckOut <= @checkOut AND b.status = 1 AND t.id = b.idTable
 END
 go
+
 --
 Create proc USP_UpdateAccount
 @userName Nvarchar(100), @displayName NVARCHAR (100), @password NVARCHAR(100), @newPassword NVARCHAR (100)
