@@ -98,7 +98,7 @@ exec dbo.USP_Login @userName = N'M', @passWord = N'1'
 --
 --mặc định 10 bàn
 DECLARE @i INT = 0 
-WHILE @i <= 10
+WHILE @i <= 20
 BEGIN 
 	INSERT dbo.TableFood (name) VALUES (N'Bàn ' + CAST(@i AS NVARCHAR(100)))	   
 	SET @i = @i + 1

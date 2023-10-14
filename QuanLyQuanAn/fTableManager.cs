@@ -34,12 +34,11 @@ namespace QuanLyQuanAn
             LoadComboboxTable(cbSwitchTable);
         }
 
-        void changeAccount(int type)     //thay đổi account 
+        void changeAccount(int type)                                                                //thay đổi account 
         {
-            adminToolStripMenuItem.Enabled = type == 1;     //adminToolStripMenuItem sử dụng được khi type bằng 1, khác 1 thì không dùng được 
+            adminToolStripMenuItem.Enabled = type == 1;                                             //adminToolStripMenuItem sử dụng được khi type bằng 1, khác 1 thì không dùng được 
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")";        //hiện thị thêm displayName bên phần thông tin tài khoản 
         }
-
 
         #region Method
         void LoadCategory()
@@ -228,7 +227,8 @@ namespace QuanLyQuanAn
             int id1 = (lsvBill.Tag as Table).ID;
 
             int id2 = (cbSwitchTable.SelectedItem as Table).ID;
-            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show(string.Format("Bạn có thật sự muốn chuyển bàn {0} qua bàn {1}", (lsvBill.Tag as Table).Name,
+                (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 TableDAO.Instance.SwitchTable(id1, id2);
 

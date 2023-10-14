@@ -43,6 +43,7 @@ namespace QuanLyQuanAn
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFromDay.Value, dtpkToDay.Value);
         }
+        
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;
@@ -64,7 +65,7 @@ namespace QuanLyQuanAn
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
-
+        #region Events
         private void btnShowAccount_Click(object sender, EventArgs e)       //xem account
         {
             LoadAccount();
@@ -209,6 +210,90 @@ namespace QuanLyQuanAn
         private void btnViewbill_Click_1(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFromDay.Value, dtpkToDay.Value);
+        }
+        #endregion
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Vui long dung xoa chinh ban");
+                return;
+            }
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xoa tai khoan thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("Xoa tai khoan that bai");
+            }
+            LoadAccount();
+        }
+        private void btnDeleteAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;         
+            DeleteAccount(userName);
+        }
+
+        void EditAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cap nhat tai khoan thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("Cap nhat tai khoan that bai");
+            }
+            LoadAccount();
+        }
+        private void btnEditAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nubType.Value;
+
+            EditAccount(userName, displayName, type);
+        }
+
+        void AddAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Them tai khoan thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("Them tai khoan that bai");
+            }
+            LoadAccount();
+        }
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            string displayName = txbDisplayName.Text;
+            int type = (int)nubType.Value;
+
+            AddAccount(userName, displayName, type);
+        }
+
+        void ResetPass(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Dat lai mat khau thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("Dat lai mat khau that bai");
+            }
+            LoadAccount();
+        }
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = txbUserName.Text;
+            ResetPass(userName);
         }
     }
 }
